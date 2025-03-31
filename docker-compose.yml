@@ -1,0 +1,12 @@
+services:
+  flaskapptest:
+    build: .
+    container_name: flaskapptest
+    ports:
+      - "80:80"
+    networks:
+      - flaskappnet
+
+
+networks:
+  flaskappnet:

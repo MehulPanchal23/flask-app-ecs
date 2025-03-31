@@ -28,4 +28,4 @@ ENV PYTHONPATH="/app/deps"
 
 EXPOSE 80
 
-CMD ["python","run.py"]
+CMD ["run.py"]
