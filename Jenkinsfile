@@ -8,7 +8,7 @@ pipeline{
         }
         stage("build image"){
             steps{
-                sh "docker built -t flaskapptest ."
+                sh "docker build -t flaskapptest ."
             }
         }
         stage("Push Image to Docker HUB"){
