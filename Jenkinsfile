@@ -33,20 +33,20 @@ pipeline{
     }
 post {
     success {
-        emailext(
+        emailext
             from: "panchalmehul191@gmail.com"
             subject: "Build SuccessFully",
             body: "Good All Okay",
             to: "panchalmehul195@gmail.com"
-                 )
+            
         }
     failure {
-        emailext(
+        emailext
             from: "panchalmehul191@gmail.com"
             subject: "Build Failed",
             body: "Not Good Check the Logs",
             to: "panchalmehul195@gmail.com"
-                 )
+            
     }
 }
 }
