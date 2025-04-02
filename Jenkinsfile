@@ -34,11 +34,15 @@ pipeline{
 post {
     success {
         emailext from: "panchalmehul191@gmail.com",
+                 subject: '$DEFAULT_SUBJECT',
+                 body: '$DEFAULT_CONTENT',
                  to: "panchalmehul195@gmail.com"
             
         }
     failure {
         emailext from: "panchalmehul191@gmail.com",
+                 subject: '$DEFAULT_SUBJECT',
+                 body: '$DEFAULT_CONTENT',
                  to: "panchalmehul195@gmail.com"
             
     }
