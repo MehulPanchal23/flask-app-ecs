@@ -6,6 +6,11 @@ pipeline{
                 git url: "https://github.com/MehulPanchal23/flask-app-ecs.git", branch: "master"
             }
         }
+        stage("Trivy FileSystem Scan"){
+            steps{
+                sh "trivy fs . -o trivyresult.json"
+            }
+        }
         stage("build image"){
             steps{
                 sh "docker build -t flaskapptest ."
@@ -33,14 +38,16 @@ pipeline{
     }
 post {
     success {
-        emailext from: "panchalmehul191@gmail.com",
+        emailext attachLog: true,
+                 from: "panchalmehul191@gmail.com",
                  subject: '$DEFAULT_SUBJECT',
                  body: '$DEFAULT_CONTENT',
                  to: "panchalmehul195@gmail.com"
             
         }
     failure {
-        emailext from: "panchalmehul191@gmail.com",
+        emailext attachLog: true,
+                 from: "panchalmehul191@gmail.com",
                  subject: '$DEFAULT_SUBJECT',
                  body: '$DEFAULT_CONTENT',
                  to: "panchalmehul195@gmail.com"
